@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using SchoolMusic.Application.Lessons;
+using SchoolMusic.Application.Students;
+using SchoolMusic.Application.Teachers;
 using SchoolMusic.DAL.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,10 @@ builder.Services.AddSwaggerGen();
 
 var connection = builder.Configuration.GetConnectionString("MyBookMarksConnection");
 builder.Services.AddDbContext<SchoolMusicContext>(options => options.UseSqlServer(connection));
+
+builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<TeacherService>();
+builder.Services.AddScoped<LessonsService>();
 
 var app = builder.Build();
 

@@ -2,7 +2,7 @@
 {
     public class Lesson
     {
-        public long id { get; set; }
+        public long Id { get; set; }
        
         public DateTime Date { get; set; }
 
